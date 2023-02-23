@@ -1,0 +1,418 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100px;
+  background-color: rgb(49, 50, 67);
+}
+
+.nav-container img {
+  height: 80px;
+  width: 250px;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  padding-right: 400px;
+  align-items: center;
+  font-size: 1.5rem;
+  transition: 0.4s;
+}
+
+.menu-container.closed {
+  padding-right: 0;
+}
+
+.options-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  transition: 0.4s;
+  background: #f2f2f2;
+  z-index: 10;
+}
+
+.menu-container.closed .options-container {
+  transform: translateX(450px);
+}
+
+input[type="file"] {
+  display: none;
+}
+.custom-imgInput {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.upload-options {
+  display: flex;
+  padding: 30px 0;
+}
+
+.upload-options button {
+  font-size: 1.5rem;
+}
+
+.upload-options a {
+  font-size: 1.5rem;
+}
+
+.config-container {
+  padding-top: 6rem;
+  display: flex;
+  flex-flow: column nowrap;
+  border-radius: 1rem;
+  width: 100%;
+  position: relative;
+}
+
+.filter-btn-inside {
+  all: unset;
+  position: absolute;
+  top: 10px;
+  left: -15px;
+  width: 40px;
+  height: 40px;
+  background: #0084a2;
+  border-radius: 5px 15px 0 0;
+  color: white;
+  font-weight: bold;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.filter-btn-inside::before {
+  display: block;
+  content: "";
+  background: #0084a2;
+  width: 30px;
+  height: 10px;
+  position: absolute;
+  left: 1px;
+  bottom: -8px;
+  transform: rotate(30deg);
+  z-index: -1;
+}
+
+.filter-btn-inside::after {
+  display: block;
+  content: "";
+  background: #f2f2f2;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  z-index: -1;
+}
+
+.config-container h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  display: block;
+  text-align: center;
+  color: rgb(49, 50, 67);
+  padding-bottom: 5px;
+}
+
+.config-container h1::after {
+  display: block;
+  content: "";
+  width: 100px;
+  height: 3px;
+  margin: auto;
+  margin-bottom: 1rem;
+  background: rgb(49, 50, 67);
+}
+
+.config-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.config-options button,
+.save-btn button {
+  margin: 5px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  background: #fcc302;
+  border: 2px solid #fcc302;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.config-options button:hover,
+.save-btn button:hover {
+  background: transparent;
+  color: #fcc302;
+}
+
+.preview-container {
+  width: 600px;
+  margin-bottom: 1rem;
+}
+
+.preview-container h2 {
+  text-align: center;
+}
+
+.layout-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.layout-header div {
+  background-color: #0084a2;
+  padding: 0 5px;
+  border-radius: 5px;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.layout-content {
+  display: flex;
+}
+
+.frente-bone {
+  width: 66.7%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img.bone {
+  width: 200px !important;
+  height: 100px !important;
+  object-fit: contain !important;
+}
+
+.laterais-bone div {
+  position: relative;
+}
+
+.filter-btn {
+  all: unset;
+  position: absolute;
+  right: 2rem;
+  top: 3rem;
+  z-index: 1;
+}
+
+.filter-btn svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
+.layout-container .logo-container {
+  width: 250px;
+  height: 130px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.logo-container.frente img {
+  position: relative;
+  right: -90px;
+  top: 70px;
+}
+
+.logo-container.right {
+  transform: scale(0.25) rotate(-23deg) rotate3d(0, 1, 0, -30deg);
+}
+
+.logo-container.right img {
+  position: relative;
+  right: -110px;
+  top: -80px;
+  clip-path: polygon(0 0, 50% 0, 52% 100%, 0% 100%);
+}
+
+.logo-container.left {
+  transform: scale(0.25) rotate(30deg) rotate3d(0, 1, 0, -30deg);
+}
+
+.logo-container.left img {
+  position: relative;
+  left: 332px;
+  top: 30px;
+  clip-path: polygon(45% 0, 100% 0, 100% 100%, 51% 100%);
+  transform: rotateY(180deg);
+}
+
+.frente-bone img {
+  width: 360px;
+  height: 300px;
+}
+
+.logo-container img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.laterais-bone {
+  width: 33.3%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.laterais-bone > div {
+  overflow: hidden;
+}
+
+.laterais-bone img {
+  width: 100%;
+  height: 100%;
+}
+
+.back-container {
+  display: flex;
+  justify-content: center;
+}
+
+.back-container img {
+  width: 143px;
+  height: 100px;
+}
+
+.layout-footer {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 15px;
+}
+
+.column-list {
+  column-count: 2;
+}
+
+.column-list b {
+  font-weight: 900;
+}
+
+li::marker {
+  color: #0084a2;
+}
+
+.save-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-btn button {
+  margin: 0 1.6rem;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#layout-ready {
+  opacity: 0;
+}
+
+.header-ready {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 25px;
+  right: 0px;
+}
+
+.header-ready img {
+  max-height: 75px;
+}
+
+.footer-ready {
+  width: 150px;
+  height: 50px;
+  display: table;
+  padding: 1rem;
+  margin: auto;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  background: #0084a2;
+  border-radius: 10px 10px 0 0;
+}
+
+.footer-ready img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+@page {
+  margin-botton: 5cm;
+}
+
+@media print {
+  nav,
+  button,
+  #clone,
+  #preview-label,
+  .options-container,
+  .upload-options,
+  .add-btn {
+    display: none !important;
+  }
+
+  .menu-container {
+    padding-right: 0 !important;
+  }
+
+  .header-ready img {
+    position: fixed;
+  }
+
+  .preview-container:nth-child(odd) {
+    margin-top: 70px !important;
+  }
+
+  .preview-container:nth-child(even) {
+    page-break-after: always;
+  }
+
+  .footer-ready {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
